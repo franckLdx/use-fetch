@@ -1,2 +1,2 @@
-# usrQuey
-A react hook that encapsulate boilerpart that comes when doing query into a functiinal component 
+# useQuery
+A react hook that encapsulates boilerpart that comes when doing query into functional components 
