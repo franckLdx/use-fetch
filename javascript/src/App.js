@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
+import { useFetch, useAxios } from 'react-use-query';
 import logo from './logo.svg';
 import './App.css';
 
-import { useFetch, useAxios } from './lib';
-
 function App() {
+
   const [post] = useFetch('https://jsonplaceholder.typicode.com/posts/1');
   const config = useMemo(
     () => ({ method: 'get', baseURL: 'https://jsonplaceholder.typicode.com/posts/1' }),
