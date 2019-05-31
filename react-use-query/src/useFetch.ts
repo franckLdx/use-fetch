@@ -8,13 +8,15 @@ export function useFetch(initialQuery: string) {
   );
 
   const setQuery = useCallback(
-    (query: string) => {
-      dispatch({ type: 'LOADING' });
-      fetch(query)
-        .then(response => {
-          dispatch({ type: 'LOADED', response });
-        })
-        .catch(error => dispatch({ type: 'ERROR', error }));
+    async (query: string) => {
+      try {
+        dispatch({ type: 'LOADING' });
+        const raw = await fetch(query);
+        const response = await raw.json();
+        dispatch({ type: 'LOADED', response });
+      } catch (error) {
+        dispatch({ type: 'ERROR', error });
+      }
     },
     []
   );
