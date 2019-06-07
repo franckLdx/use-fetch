@@ -8,7 +8,9 @@
     "react-scripts": "3.0.1",
     "react-use-query": "1.0.0",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.87.1"
+    "semantic-ui-react": "^0.87.1",
+    "styled-components": "^4.2.1",
+    "ts-retry": "^1.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
