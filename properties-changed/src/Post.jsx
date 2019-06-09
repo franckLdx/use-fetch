@@ -1,23 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useFetch } from 'react-use-query';
 import { Header } from 'semantic-ui-react';
 
 export const Post = ({ id }) => {
-  const [foo, setFoo] = useState(0);
-  useEffect(() => {
-    setInterval(
-      () => {
-        console.log('INTERVAL', foo);
-        setFoo(foo + 1);
-      },
-      1000
-    )
-  }, [foo]);
-  const [state, response] = useFetch(
+  const [fetchState, response] = useFetch(
     `https://jsonplaceholder.typicode.com/posts/${id}`,
     [id]
   );
-  switch (state) {
+  switch (fetchState) {
     case 'loading':
       return 'Please wait while loading';
     case 'loaded':
