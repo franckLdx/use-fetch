@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
-  "repository": "https://github.com/franckLdx/use-fetch/tree/master/hook-use-fetch",
+  "repository": "https://github.com/franckLdx/use-fetch/tree/master/hook-gituse-fetch",
   "author": "<franck.ledoux.pro@gmail.com>",
   "license": "MIT",
   "files": [

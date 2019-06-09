@@ -1,7 +1,7 @@
 {
   "private": true,
   "workspaces": [
-    "use-fetch",
+    "hook-use-fetch",
     "properties-changed"
   ]
 }
