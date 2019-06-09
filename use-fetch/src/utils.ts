@@ -1,44 +1,35 @@
-export interface Pending {
-  state: 'nothing' | 'loading'
-  response: undefined,
-  error: undefined,
-}
-
 export interface Loading {
-  state: 'loading';
-  response: undefined,
-  error: undefined,
+  fetchState: 'loading';
+  result: undefined,
 }
 
 export interface Loaded {
-  state: 'loaded';
-  response: unknown,
-  error: undefined,
+  fetchState: 'loaded';
+  result: unknown,
 }
 
 export interface Error {
-  state: 'error';
-  response: undefined,
-  error: unknown,
+  fetchState: 'error';
+  result: unknown,
 }
 
-export type State = Pending | Loading | Loaded | Error;
+export type State = Loading | Loaded | Error;
 
 export type Action =
   | { type: 'LOADING' }
   | { type: 'LOADED', response: unknown }
   | { type: 'ERROR', error: unknown }
 
-export function reducer(state: State, action: Action): State {
+export const reducer = (fetchState: State, action: Action): State => {
   switch (action.type) {
     case 'LOADING':
-      return { state: 'loading', response: undefined, error: undefined };
+      return { fetchState: 'loading', result: undefined };
     case 'LOADED':
-      return { state: 'loaded', response: action.response, error: undefined };
+      return { fetchState: 'loaded', result: action.response };
     case 'ERROR':
-      return { state: 'error', response: undefined, error: action.error };
+      return { fetchState: 'error', result: action.error };
     default:
       break;
   }
-  return state;
+  return fetchState;
 }

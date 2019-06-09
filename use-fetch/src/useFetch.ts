@@ -1,39 +1,31 @@
-import { useCallback, useReducer, useEffect, useMemo } from 'react';
-import { reducer } from './utils';
+import { useReducer, useEffect, useMemo } from 'react';
+import { reducer, Action } from './utils';
 
-export function useFetch(initialQuery: string) {
+export function useFetch(query: string) {
   const [state, dispatch] = useReducer(
     reducer,
-    { state: 'nothing', response: undefined, error: undefined }
-  );
-
-  const setQuery = useCallback(
-    async (query: string) => {
-      try {
-        dispatch({ type: 'LOADING' });
-        const raw = await fetch(query);
-        if (!raw.ok) {
-          console.log(raw);
-          dispatch({ type: 'ERROR', error: raw });
-          return;
-        }
-        const response = await raw.json();
-        dispatch({ type: 'LOADED', response });
-      } catch (error) {
-        dispatch({ type: 'ERROR', error });
-      }
-    },
-    []
+    { fetchState: 'loading', result: undefined }
   );
 
   useEffect(
-    () => {
-      if (initialQuery) {
-        setQuery(initialQuery);
-      }
-    },
-    [initialQuery, setQuery]
+    () => { executeQuery(query, dispatch); },
+    [query]
   );
 
-  return [state, setQuery];
+  return [state.fetchState, state.result];
 }
+
+const executeQuery = async (query: string, dispatch: React.Dispatch<Action>) => {
+  try {
+    dispatch({ type: 'LOADING' });
+    const raw = await fetch(query);
+    if (!raw.ok) {
+      dispatch({ type: 'ERROR', error: raw });
+      return;
+    }
+    const response = await raw.json();
+    dispatch({ type: 'LOADED', response });
+  } catch (error) {
+    dispatch({ type: 'ERROR', error });
+  }
+};

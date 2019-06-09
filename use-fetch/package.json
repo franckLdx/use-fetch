@@ -2,7 +2,8 @@
   "name": "use-fetch",
   "version": "1.0.0",
   "main": "lib/index.js",
-  "repository": "https://github.com/franckLdx/use-query.git",
+  "typings": "lib/index.d.ts",
+  "repository": "https://github.com/franckLdx/use-fetch/tree/master/use-fetch",
   "author": "<franck.ledoux.pro@gmail.com>",
   "license": "MIT",
   "files": [
@@ -16,10 +17,9 @@
     "./src/"
   ],
   "scripts": {
-    "prelib": "rimraf lib",
-    "lib:watch": "npm run prelib && tsc --watch",
-    "lib:build": "npm run prelib && tsc",
-    "test": "npm run lib:build && mocha --require ts-node/register src/**/*.test.ts"
+    "prebuild": "rimraf lib",
+    "watch": "npm run prelib && tsc --watch",
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
