@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFetch } from 'react-use-query';
+import { useFetch } from 'hook-use-fetch';
 import { Header } from 'semantic-ui-react';
 
 export const Post = ({ id }) => {

@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { useFetch } from 'react-use-query';
+import { useFetch } from 'hook-use-fetch';
 import { Dropdown } from 'semantic-ui-react'
 import { Post } from './Post'
 
