@@ -5,7 +5,7 @@ A react hook that encapsulates boilerpart that comes when doing query into funct
 To execute a get with no parameter when component is mounted:
 ~~~javascript
 export const Posts = () => {
-  const [fetchState, response] = useFetch('https://jsonplaceholder.typicode.com/posts');
+  const [fetchState, result] = useFetch('https://jsonplaceholder.typicode.com/posts');
   const [selectedPost, setSelectedPost] = useState(undefined);
   const onPostSelected = useCallback(
     (item, { value }) => setSelectedPost(value),
@@ -15,7 +15,7 @@ export const Posts = () => {
     case 'loading':
       return 'Please wait while loading';
     case 'loaded':
-      const options = response.map(post => ({
+      const options = result.map(post => ({
         key: post.id,
         value: post.id,
         text: post.title
@@ -43,7 +43,7 @@ set the paramater(s) in denpendecies list. The requests will be executed wheneve
 the dependencies change (and only when the dependencies change).
 ~~~javascript
 export const Post = ({ id }) => {
-  const [fetchState, response] = useFetch(
+  const [fetchState, result] = useFetch(
     `https://jsonplaceholder.typicode.com/posts/${id}`,
     [id]
   );
@@ -53,9 +53,9 @@ export const Post = ({ id }) => {
     case 'loaded':
       return (
         <article>
-          <Header as='h4'> {response.title}</Header>
+          <Header as='h4'> {result.title}</Header>
           <br></br>
-          {response.body}
+          {result.body}
         </article >
       );
     default:
@@ -65,7 +65,10 @@ export const Post = ({ id }) => {
 ~~~
 
 # API:
-const [state, response] = useFetch(
-    `https://jsonplaceholder.typicode.com/posts/${id}`,
-    [id]
-  );
+const [fetchState, result] = useFetch(URI, [depedencies]);
+
+Result content varies depending on fetchState value. This last can have the followong values:
+ * __loading__: waiting for response, result is undefined
+ * __loaded__: got a successfull response; result contains the response
+ * __error__: request failed, result contains information about the error. Error could be a response (a 4xx or a 5xx) or an error object.
+ 
