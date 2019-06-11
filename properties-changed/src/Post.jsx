@@ -3,7 +3,7 @@ import { useFetch } from 'hook-use-fetch';
 import { Header } from 'semantic-ui-react';
 
 export const Post = ({ id }) => {
-  const [fetchState, response] = useFetch(
+  const [fetchState, result] = useFetch(
     `https://jsonplaceholder.typicode.com/posts/${id}`,
     [id]
   );
@@ -13,9 +13,9 @@ export const Post = ({ id }) => {
     case 'loaded':
       return (
         <article>
-          <Header as='h4'> {response.title}</Header>
+          <Header as='h4'> {result.title}</Header>
           <br></br>
-          {response.body}
+          {result.body}
         </article >
       );
     default:
