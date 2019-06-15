@@ -4,7 +4,7 @@ import { Dropdown } from 'semantic-ui-react'
 import { Post } from './Post'
 
 export const Posts = () => {
-  const [fetchState, result] = useFetch('https://jsonplaceholder.typicode.com/posts');
+  const [fetchState, result] = useFetch('https://jsonplaceholder.typicode.com/posts', []);
   const [selectedPost, setSelectedPost] = useState(undefined);
   const onPostSelected = useCallback(
     (item, { value }) => setSelectedPost(value),
@@ -29,10 +29,9 @@ export const Posts = () => {
           value={selectedPost}
           onChange={onPostSelected}
         />
-        {selectedPost && (<><br></br> <Post id={selectedPost} /></>)}
+        {selectedPost && (<><br /> <Post id={selectedPost} /></>)}
       </>);
     default:
-      console.log(fetchState);
       return 'Sorry, shits happen';
   }
 }
