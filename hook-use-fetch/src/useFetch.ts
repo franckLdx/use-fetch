@@ -1,7 +1,7 @@
-import { useReducer, useEffect, useMemo } from 'react';
-import { reducer, Action } from './utils';
+import { useReducer, useEffect, DependencyList } from 'react';
+import { reducer, Action, FetchState } from './utils';
 
-export function useFetch(query: string) {
+export function useFetch(query: string, dependencies: DependencyList): [FetchState, undefined | unknown] {
   const [state, dispatch] = useReducer(
     reducer,
     { fetchState: 'loading', result: undefined }
@@ -9,7 +9,7 @@ export function useFetch(query: string) {
 
   useEffect(
     () => { executeQuery(query, dispatch); },
-    [query]
+    dependencies
   );
 
   return [state.fetchState, state.result];

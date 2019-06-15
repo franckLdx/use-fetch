@@ -1,3 +1,5 @@
+export type FetchState = 'loading' | 'loaded' | 'error';
+
 export interface Loading {
   fetchState: 'loading';
   result: undefined,

@@ -8,9 +8,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { useReducer, useEffect } from 'react';
 import { reducer } from './utils';
-export function useFetch(query) {
+export function useFetch(query, dependencies) {
     const [state, dispatch] = useReducer(reducer, { fetchState: 'loading', result: undefined });
-    useEffect(() => { executeQuery(query, dispatch); }, [query]);
+    useEffect(() => { executeQuery(query, dispatch); }, dependencies);
     return [state.fetchState, state.result];
 }
 const executeQuery = (query, dispatch) => __awaiter(this, void 0, void 0, function* () {

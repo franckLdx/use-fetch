@@ -38,7 +38,7 @@ export const Posts = () => {
 }
 ~~~
 
-To execute a Get with parameter(s) when component is mounted:
+To execute a Get with parameter(s) when component is mounted or when a parameter change:
 set the paramater(s) in denpendecies list. The requests will be executed whenever
 the dependencies change (and only when the dependencies change).
 ~~~javascript
