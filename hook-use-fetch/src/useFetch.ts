@@ -15,9 +15,12 @@ export function useFetch(query: string, dependencies: DependencyList): [FetchSta
   return [state.fetchState, state.result];
 }
 
-const executeQuery = async (query: string, dispatch: React.Dispatch<Action>) => {
+const executeQuery = async (query: string | undefined | null, dispatch: React.Dispatch<Action>) => {
   try {
     dispatch({ type: 'LOADING' });
+    if (!query) {
+      return;
+    }
     const raw = await fetch(query);
     if (!raw.ok) {
       dispatch({ type: 'ERROR', error: raw });
