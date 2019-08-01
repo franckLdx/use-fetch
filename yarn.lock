@@ -1916,6 +1916,14 @@ axios@*:
     follow-redirects "1.5.10"
     is-buffer "^2.0.2"
 
+axios@^0.18.0:
+  version "0.18.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.18.1.tgz#ff3f0de2e7b5d180e757ad98000f1081b87bcea3"
+  integrity sha512-0BfJq4NSfQXd+SkFdrvFbG7addhYSBA2mQwISr46pD6E5iqkWg02RAs8vyTT/j0RTnoYmeXauBuSv1qKwR179g==
+  dependencies:
+    follow-redirects "1.5.10"
+    is-buffer "^2.0.2"
+
 axobject-query@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/axobject-query/-/axobject-query-2.0.2.tgz#ea187abe5b9002b377f925d8bf7d1c561adf38f9"
@@ -6511,6 +6519,13 @@ no-case@^2.2.0:
   integrity sha512-rmTZ9kz+f3rCvK2TD1Ue/oZlns7OGoIWP4fc3llxxRXlOkHKoWPPWJOfFYpITabSow43QJbRIoHQXtt10VldyQ==
   dependencies:
     lower-case "^1.1.1"
+
+node-duckduckgo@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/node-duckduckgo/-/node-duckduckgo-2.0.4.tgz#f6190de6dbad8ff8ae96fefc49644a0918af01c8"
+  integrity sha512-WMvGcsNxj3PPPzQwoNq0kA85X2V+Qcg3tkMIqU2+PWbUA+OK18fqCo1GpwPITHHpwNRh5BomrR2IrcyJok//kg==
+  dependencies:
+    axios "^0.18.0"
 
 node-fetch@^1.0.1:
   version "1.7.3"

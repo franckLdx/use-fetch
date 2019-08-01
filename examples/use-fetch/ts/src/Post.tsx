@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useFetch } from 'hook-use-fetch';
 import { Header } from 'semantic-ui-react';
+import { duckIt } from 'node-duckduckgo';
 
 export const Post: React.FC<{ id: string }> = ({ id }) => {
   const [fetchState, result] = useFetch(
     `https://jsonplaceholder.typicode.com/posts/${id}`,
     [id]
+  );
+  const foo = useEffect(
+    () => {
+      duckIt('bart simpsons').then(console.log);
+    }, []
   );
   switch (fetchState) {
     case 'loading':
