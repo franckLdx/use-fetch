@@ -3,5 +3,6 @@
   "workspaces": [
     "hook-use-fetch",
     "examples/**"
-  ]
+  ],
+  "version": "0.0.0"
 }
