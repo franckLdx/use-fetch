@@ -16,6 +16,9 @@ export function useFetch(query, dependencies) {
 const executeQuery = (query, dispatch) => __awaiter(this, void 0, void 0, function* () {
     try {
         dispatch({ type: 'LOADING' });
+        if (!query) {
+            return;
+        }
         const raw = yield fetch(query);
         if (!raw.ok) {
             dispatch({ type: 'ERROR', error: raw });
