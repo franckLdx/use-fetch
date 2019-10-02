@@ -1,6 +1,6 @@
 {
   "name": "hook-use-fetch",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "repository": "https://github.com/franckLdx/use-fetch/tree/master/hook-use-fetch",
@@ -23,10 +23,10 @@
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
-    "@types/react": "^16.8.18",
-    "react": "^16.8.6",
-    "rimraf": "^2.6.3",
-    "typescript": "^3.4.5"
+    "@types/react": "^16.9.4",
+    "react": "^16.10.1",
+    "rimraf": "^3.0.0",
+    "typescript": "^3.6.3"
   },
   "peerDependencies": {
     "react": "^16.8.6"
